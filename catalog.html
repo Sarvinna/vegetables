@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог | Овощи, Фрукты, Сухофрукты и Орехи</title>
+    
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=Caveat&family=Pacifico&family=Covered+By+Your+Grace&family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <style>
+        /* ===== ОСНОВНЫЕ ПЕРЕМЕННЫИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2E7D32;
+            --primary-green-light: #4CAF50;
+            --primary-green-dark: #1B5E20;
+            --accent-yellow: #ffc107;
+            --accent-red: #f44336;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --bg-light: #F5F5F5;
+            --bg-white: #FFFFFF;
+            --bg-beige: #F8F7F2;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 15px 40px rgba(0, 0, 0, 0.1);
+            --border-radius: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ШАПКА (УПРОЩЕННАЯ) ===== */
+        .header {
+            background: white;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-image img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green-dark);
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-green);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 25px;
+        }
+
+        .action-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .action-link:hover {
+            color: var(--primary-green);
+        }
+
+        .action-link i {
+            font-size: 1.2rem;
+        }
+
+        .cart-count, .wishlist-count {
+            background: var(--primary-green);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-left: 5px;
+        }
+
+        /* ===== ГЕРОЙ СЕКЦИЯ ===== */
+        .catalog-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('img/catalog.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .catalog-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 10px;
+        }
+
+        .catalog-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+                /* ===== ГЛАВНЫЙ ЭКРАН ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 500px;
+            background: #1F1E17;
+            overflow: hidden;
+        }
+
+        /* Rectangle 2027 - черный фон */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 814px;
+            left: 0;
+            top: -3.5px;
+            background: rgb(238, 183, 3);
+            z-index: 1;
+        }
+
+        /* Изображение с размытием */
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/catalog.avif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.95;
+            filter: blur(2px);
+            z-index: 2;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero-content {
+            position: relative;
+            width: 656px;
+            color: white;
+        }
+
+        /* Овощи и Фрукты - заголовок */
+        .hero-content .hero-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 130px;
+            line-height: 125px;
+            color: #FFFFFF;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            width: 655.74px;
+        }
+
+        /* leaf-01.webp - декоративный элемент */
+        .hero-decoration {
+            position: absolute;
+            width: 92px;
+            height: 75px;
+            right: 49px;
+            top: 122px;
+            z-index: 4;
+        }
+
+        .hero-decoration .leaf {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Магазин "Овощи и Фрукты" - подзаголовок */
+        .hero-content .hero-subtitle {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FFD700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Описание */
+        .hero-content .hero-description {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        /* Кнопка */
+        .hero-content .btn {
+            font-family: 'IBM Plex Mono', monospace;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 35px;
+            background: #4BAF47;
+        border-radius: 10px;
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-content .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #FFD700;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .hero-content .btn:hover::before {
+            left: 0;
+        }
+
+        .hero-content .btn:hover {
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Скрываем лишний декоративный элемент */
+        .hero-decoration-line {
+            display: none;
+        }
+
+/* Стили для кнопки "Перейти" */
+.btn-product.in-cart {
+    background: var(--primary-green-dark);
+    box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.btn-product.in-cart:hover {
+    background: #134d17;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(27, 94, 32, 0.4);
+}
+
+.btn-weekly.in-cart {
+    background: var(--primary-green-dark);
+    box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
+}
+
+.btn-weekly.in-cart:hover {
+    background: #134d17;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(27, 94, 32, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(27, 94, 32, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(27, 94, 32, 0);
+    }
+}
+        /* ===== ТОВАРЫ НЕДЕЛИ (НОВЫЙ ДИЗАЙН) ===== */
+        .weekly-products {
+            margin: 60px 0 80px;
+        }
+
+        .weekly-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .weekly-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .weekly-title p {
+            font-family: 'Covered By Your Grace', cursive;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+        }
+
+        .weekly-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .weekly-item {
+            background: var(--bg-beige);
+            border-radius: 20px;
+            padding: 30px 20px 25px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .weekly-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .weekly-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .weekly-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .weekly-item h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 26px;
+            color: #222222;
+            margin-bottom: 5px;
+        }
+
+        .weekly-price {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 30px;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .weekly-rating {
+            color: #EEC044;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .weekly-rating i {
+            margin: 0 2px;
+        }
+
+        .btn-weekly {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-weekly:hover {
+            background: var(--primary-green-dark);
+            transform: scale(1.05);
+        }
+
+        /* Второй ряд товаров недели */
+        .weekly-grid-second {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 30px auto 0;
+        }
+
+        /* ===== ОСНОВНОЙ ЛЕЙАУТ КАТАЛОГА ===== */
+        .catalog-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        /* ===== САЙДБАР С ФИЛЬТРАМИ ===== */
+        .catalog-sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+
+        .filter-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-title i {
+            color: var(--primary-green);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .filter-checkbox input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .price-range {
+            padding: 10px 0;
+        }
+
+        .price-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .btn-filter {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 10px;
+        }
+
+        .btn-filter:hover {
+            background: var(--primary-green-dark);
+        }
+
+        .btn-reset {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid #eaeaea;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-reset:hover {
+            background: #f5f5f5;
+        }
+
+        /* ===== ОСНОВНАЯ ЧАСТЬ КАТАЛОГА ===== */
+        .catalog-main {
+            background: transparent;
+        }
+
+        /* Категории (табы) */
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .category-tab {
+            padding: 12px 25px;
+            background: transparent;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .category-tab i {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .category-tab:hover i,
+        .category-tab.active i {
+            color: white;
+        }
+
+        /* Панель управления */
+        .catalog-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-soft);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .results-count {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .sort-select {
+            padding: 10px 20px;
+            border: 2px solid #eaeaea;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 30px;
+            padding: 5px 5px 5px 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            padding: 10px 0;
+            width: 200px;
+            outline: none;
+        }
+
+        .search-box button {
+            background: var(--primary-green);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background: var(--primary-green-dark);
+        }
+
+        /* Сетка товаров (основной каталог) */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Карточка товара */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid #eaeaea;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .product-image {
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #ff9800, #f44336);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-badge.hit {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+        }
+
+        .product-discount {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-actions button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .product-actions button:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .product-actions button.active {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .reviews-count {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 0;
+        }
+
+        .product-meta i {
+            color: var(--primary-green);
+            margin-right: 5px;
+        }
+
+        .product-price-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .product-prices {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green-dark);
+        }
+
+        .old-price {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .btn-product {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-product:hover {
+            background: var(--primary-green-dark);
+            transform: scale(1.05);
+        }
+
+        .btn-product.in-cart {
+            background: var(--primary-green-dark);
+        }
+
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+
+        .out-of-stock {
+            text-align: center;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Пагинация */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .page-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #eaeaea;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            background: white;
+            cursor: pointer;
+        }
+
+        .page-link:hover,
+        .page-link.active {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        /* Пустое состояние */
+        .empty-state {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 30px;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .empty-state button {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Уведомления */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification.success i {
+            color: var(--primary-green);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.3s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
+        /* Загрузка */
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            color: var(--primary-green);
+        }
+
+        /* Баннер доставки */
+        .delivery-banner {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+        }
+
+        .delivery-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .delivery-banner p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .delivery-banner .btn {
+            background: white;
+            color: var(--primary-green-dark);
+            padding: 15px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .delivery-banner .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Футер */
+        .footer {
+            background: var(--primary-green-dark);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-image-small img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+            transform: translateY(-3px);
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-yellow);
+        }
+
+        .footer-menu {
+            list-style: none;
+        }
+
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+
+        .footer-menu a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-menu a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: #ffb300;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .catalog-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .catalog-sidebar {
+                position: static;
+            }
+            
+            .weekly-grid,
+            .weekly-grid-second {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .category-tabs {
+                border-radius: 20px;
+            }
+            
+            .catalog-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 20px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .weekly-grid,
+            .weekly-grid-second {
+                grid-template-columns: 1fr;
+            }
+            
+            .weekly-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Кнопка "Показать все" */
+        .view-all-container {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .view-all-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-all-category:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="main-nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-image">
+                        <img src="img/logo.png" alt="Логотип">
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Овощи и Фрукты</h1>
+                        <p class="logo-subtitle">Магазин свежих продуктов</p>
+                    </div>
+                </a>
+
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html" class="active">Каталог</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="cart.html">Корзина</a></li>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-actions">
+                    <a href="#" class="action-link">
+                        <i class="fas fa-heart"></i>
+                        <span>Избранное <span class="wishlist-count">0</span></span>
+                    </a>
+                    <a href="cart.html" class="action-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Корзина <span class="cart-count">0</span></span>
+                    </a>
+                    <a href="#" class="action-link">
+                        <i class="fas fa-user"></i>
+                        <span>Войти</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный экран -->
+        <section class="hero">
+            <div class="hero-image-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Каталог</h2>
+                    <div class="hero-decoration">
+                        <img src="img/leaf.png" alt="Листок" class="leaf">
+                    </div>
+                    <p class="hero-subtitle">Свежие продукты</p>
+                    <p class="hero-description">
+                        Овощи, фрукты, сухофрукты и орехи прямо с фермерских полей
+                    </p>
+                    <a href="catalog.html" class="btn btn-primary">В каталог</a>
+                </div>
+            </div>
+            <div class="hero-decoration-line"></div>
+        </section>
+
+        <!-- ТОВАРЫ НЕДЕЛИ - отдельный блок перед каталогом -->
+        <section class="weekly-products">
+            <div class="container">
+                <div class="weekly-title">
+                    <p>Сезонный урожай</p>
+                    <h2>Товары недели</h2>
+                </div>
+                
+                <!-- Первый ряд -->
+                <div class="weekly-grid" id="weeklyProductsFirstRow"></div>
+                
+                <!-- Второй ряд -->
+                <div class="weekly-grid-second" id="weeklyProductsSecondRow"></div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="catalog-layout">
+                <!-- Сайдбар с фильтрами -->
+                <aside class="catalog-sidebar">
+                    <div class="filter-section">
+                        <h3 class="filter-title"><i class="fas fa-tags"></i> Категории</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="radio" name="category" value="all" checked> Все товары
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="radio" name="category" value="vegetables"> Овощи
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="radio" name="category" value="fruits"> Фрукты
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="radio" name="category" value="dried"> Сухофрукты
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="radio" name="category" value="nuts"> Орехи
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title"><i class="fas fa-filter"></i> Фильтры</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="inStockFilter"> Только в наличии
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" id="organicFilter"> Органические
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title"><i class="fas fa-ruble-sign"></i> Цена</h3>
+                        <div class="price-range">
+                            <input type="range" id="priceRange" class="price-slider" min="0" max="2000" value="2000" step="10">
+                            <div class="price-values">
+                                <span>0₽</span>
+                                <span id="priceValue">2000₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-filter" id="applyFilters">Применить фильтры</button>
+                    <button class="btn-reset" id="resetFilters">Сбросить</button>
+                </aside>
+
+                <!-- Основная часть каталога -->
+                <div class="catalog-main">
+                    <!-- Категории (табы) -->
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="all">
+                            <i class="fas fa-th-large"></i> Все
+                        </button>
+                        <button class="category-tab" data-category="vegetables">
+                            <i class="fas fa-carrot"></i> Овощи
+                        </button>
+                        <button class="category-tab" data-category="fruits">
+                            <i class="fas fa-apple-alt"></i> Фрукты
+                        </button>
+                        <button class="category-tab" data-category="dried">
+                            <i class="fas fa-seedling"></i> Сухофрукты
+                        </button>
+                        <button class="category-tab" data-category="nuts">
+                            <i class="fas fa-acorn"></i> Орехи
+                        </button>
+                    </div>
+
+                    <!-- Панель управления -->
+                    <div class="catalog-toolbar">
+                        <div class="results-count" id="resultsCount">Найдено товаров: 60</div>
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Поиск...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <select class="sort-select" id="sortProducts">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Цена: по возрастанию</option>
+                            <option value="price-desc">Цена: по убыванию</option>
+                            <option value="rating">По рейтингу</option>
+                            <option value="name">По названию</option>
+                        </select>
+                    </div>
+
+                    <!-- Сетка товаров (только обычные товары, без акций) -->
+                    <div class="products-grid" id="productsGrid"></div>
+
+                    <!-- Индикатор загрузки -->
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <i class="fas fa-spinner fa-spin fa-3x"></i>
+                    </div>
+
+                    <!-- Пагинация -->
+                    <div class="pagination" id="pagination"></div>
+
+                    <!-- Баннер доставки -->
+                    <section class="delivery-banner">
+                        <h2>Бесплатная доставка</h2>
+                        <p>При заказе от 2000₽ доставим свежие продукты бесплатно!</p>
+                        <a href="#" class="btn">Подробнее о доставке</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-image-small">
+                            <img src="https://via.placeholder.com/50x50/FFFFFF/2E7D32?text=%F0%9F%8D%8E" alt="Логотип">
+                        </div>
+                        <div>
+                            <h3>Овощи и Фрукты</h3>
+                            <p>Магазин свежих продуктов</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Здоровая жизнь начинается со свежих продуктов! Быстрая доставка по Уфе.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Политика возврата</a></li>
+                        <li><a href="#">Оптовикам</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Россия, г. Уфа</p>
+                        <p><i class="fas fa-envelope"></i> ovofruits@mail.com</p>
+                        <p><i class="fas fa-phone"></i> +7 (000) 000-00-00</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Рассылка</h4>
+                    <p>Подпишитесь и получите скидку 10%</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Ваш Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Овощи и Фрукты. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Овощи и Фрукты - Магазин свежих продуктов</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=Caveat&family=Pacifico&family=IBM+Plex+Mono:ital,wght@1,500&family=Shadows+Into+Light+Two&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Literata:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <!-- Верхняя панель с контактами
+            <div class="top-bar">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <p class="contact-label">Call anytime</p>
+                            <p class="contact-value">+7 (000) 000-00-00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <p class="contact-label">Send email</p>
+                            <p class="contact-value">ovofruits@mail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <p class="contact-label">380 St Kilda Road</p>
+                            <p class="contact-value">Россия, г. Уфа</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-icons">
+                    <a href="#" class="icon-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icon-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div> -->
+
+             <!-- Основная навигация -->
+            <div class="main-nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-image">
+                        <img src="img/logo.png" alt="Логотип">
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Овощи и Фрукты</h1>
+                        <p class="logo-subtitle">Магазин свежих продуктов</p>
+                    </div>
+                </a>
+
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html" class="active">Каталог</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Корзина</a></li>
+                        <li><a href="#">Поддержка</a></li>
+                        <li><a href="#">Адрес</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </nav>
+
+                <div class="user-actions">
+                    <a href="#" class="action-link">
+                        <i class="fas fa-heart"></i>
+                        <span>Избранное <span class="wishlist-count">0</span></span>
+                    </a>
+                    <a href="#" class="action-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Корзина <span class="cart-count">0</span></span>
+                    </a>
+                    <a href="#" class="action-link">
+                        <i class="fas fa-user"></i>
+                        <span>Войти</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+           
+    </header>
+
+   <!-- Главный экран -->
+<section class="hero">
+    <div class="hero-image-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h2 class="hero-title">Овощи и Фрукты</h2>
+            <div class="hero-decoration">
+                <img src="img/leaf.png" alt="Листок" class="leaf">
+            </div>
+            <p class="hero-subtitle">Магазин "Овощи и Фрукты"</p>
+            <p class="hero-description">
+                Мы – ваш гид в мир вкусовых овощей и фруктов. Мы доставляем свежие продукты от проверенных фермеров
+                и мировых поставщиков свежих овощей, фруктов и ягод.
+            </p>
+            <a href="catalog.html" class="btn btn-primary">В каталог</a>
+        </div>
+    </div>
+    <div class="hero-decoration-line"></div>
+</section>
+
+    <!-- Категории товаров -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3 class="category-title">Овощи</h3>
+                    <div class="category-image">
+                        <img src="img/ovoshi.png" alt="Овощи">
+                    </div>
+                    <a href="catalog.html" class="category-link">Перейти в каталог</a>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Фрукты</h3>
+                    <div class="category-image">
+                        <img src="img/fructi.png" alt="Фрукты">
+                    </div>
+                    <a href="catalog.html" class="category-link">Перейти в каталог</a>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Орехи</h3>
+                    <div class="category-image">
+                        <img src="img/orehi.png" alt="Орехи">
+                    </div>
+                    <a href="catalog.html" class="category-link">Перейти в каталог</a>
+                </div>
+
+                <div class="category-card">
+                    <h3 class="category-title">Сухофрукты</h3>
+                    <div class="category-image">
+                        <img src="img/suhofructi.png" alt="Сухофрукты">
+                    </div>
+                    <a href="catalog.html" class="category-link">Перейти в каталог</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Магазин Овощи и Фрукты" -->
+    <section class="about-shop">
+        <div class="container">
+            <div class="about-shop-content">
+                <div class="about-images">
+                    <div class="main-image">
+                        <img src="img/entrance.png" alt="Продукты магазина">
+                    </div>
+                    <div class="secondary-image">
+                        <img src="img/ent2.png" alt="Дополнительное изображение">
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p class="pre-heading">Представляем вам</p>
+                    <h2 class="section-title">Магазин "Овощи и Фрукты"</h2>
+                    <p class="sub-heading">Наши продукты говорят за себя</p>
+                    <p class="description">
+                        Мы – ваш гид в мир вкусовых овощей и фруктов. Мы доставляем свежие продукты от проверенных
+                        фермеров и мировых поставщиков свежих овощей, фруктов и ягод. Мы готовы для вас все, что вам
+                        нужно.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Выращивание фруктов</h4>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Советы по созреванию</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advantages">
+                        <div class="advantage">
+                            <div class="advantage-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Выращиваем доверие</p>
+                        </div>
+                        <div class="advantage">
+                            <div class="advantage-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Доставляем правильно</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-secondary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Слайдер "Летние ягоды" -->
+<section class="berries-slider">
+    <div class="container">
+        <div class="slider-wrapper">
+            <!-- Зеленая рамка -->
+            <div class="slider-frame"></div>
+            
+            <!-- Красный блок с текстом -->
+            <div class="slider-red-block">
+                <h2 class="slider-title">ЛЕТНИЕ ЯГОДЫ</h2>
+                <p class="slider-subtitle">Собранные утром, у вас на столе вечером.</p>
+                <div class="slider-button">
+                    <a href="#" class="slider-btn">НАСЛАДИТЬСЯ ВКУСОМ</a>
+                </div>
+            </div>
+            
+            <!-- Изображение ягод -->
+            <div class="slider-image">
+                <img src="img/yafody.png" alt="Летние ягоды">
+            </div>
+            
+            <!-- Стрелки управления -->
+            <button class="slider-arrow slider-arrow-left">
+                <img src="img/arrow.png" alt="Предыдущий">
+            </button>
+            <button class="slider-arrow slider-arrow-right">
+                <img src="img/arrow.png" alt="Следующий">
+            </button>
+            
+            <!-- Точки навигации -->
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Наши продукты -->
+<section class="our-products-categories">
+    <div class="container">
+        <h2 class="products-categories-title">Наши продукты</h2>
+
+        <div class="products-categories-grid">
+            <!-- Фрукты -->
+            <div class="product-category-card" onclick="window.location.href='catalog_fruit.html'">
+                <img src="img/our_fruit.png" alt="Виноград">
+                <div class="category-overlay-top"></div>
+                <div class="category-overlay">
+                    <h3>Фрукты</h3>
+                </div>
+                <div class="category-icon-small">
+                    <img src="img/виногр_иконка.png" alt="Фрукты иконка">
+                </div>
+            </div>
+
+            <!-- Овощи -->
+            <div class="product-category-card" onclick="window.location.href='catalog-vegetables.html'">
+                <img src="img/our_veg.png" alt="Помидор">
+                <div class="category-overlay-top"></div>
+                <div class="category-overlay">
+                    <h3>Овощи</h3>
+                </div>
+                <div class="category-icon-small">
+                    <img src="img/помидор_иконка.png" alt="Овощи иконка">
+                </div>
+            </div>
+
+            <!-- Орехи -->
+            <div class="product-category-card" onclick="window.location.href='catalog_nuts.html'">
+                <img src="img/our_nuts.png" alt="Орехи">
+                <div class="category-overlay-top"></div>
+                <div class="category-overlay">
+                    <h3>Орехи</h3>
+                </div>
+                <div class="category-icon-small">
+                    <img src="img/иконка_орех.png" alt="Орехи иконка">
+                </div>
+            </div>
+
+            <!-- Сухофрукты -->
+            <div class="product-category-card" onclick="window.location.href='catalog_dried.html'">
+                <img src="img/our_df.png" alt="Сухофрукты">
+                <div class="category-overlay-top"></div>
+                <div class="category-overlay">
+                    <h3>Сухофрукты</h3>
+                </div>
+                <div class="category-icon-small">
+                    <img src="img/иконка_инжир_сушеный.png" alt="Сухофрукты иконка">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+    <!-- Раздел "Товары недели" -->
+<section class="our-products">
+    <div class="container">
+        <h2 class="section-title-large">Наши продукты</h2>
+
+        <div class="products-grid">
+            <!-- Продукт 1 -->
+            <div class="product-card">
+                <div class="product-badge">Sale!</div>
+                <div class="product-image">
+                    <img src="img/prod_strawberry.png" alt="Клубника">
+                </div>
+                <div class="product-category">Фрукты</div>
+                <h3 class="product-name">Свежая клубника</h3>
+                <div class="product-price">
+                    <span class="current-price">350₽</span>
+                    <span class="old-price">450₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(1, 'Свежая клубника', 350)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_carr.png" alt="Морковь">
+                </div>
+                <div class="product-category">Овощи</div>
+                <h3 class="product-name">Органическая морковь</h3>
+                <div class="product-price">
+                    <span class="current-price">65₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(2, 'Органическая морковь', 65)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_grape.png" alt="Виноград">
+                </div>
+                <div class="product-category">Фрукты</div>
+                <h3 class="product-name">Свежий виноград</h3>
+                <div class="product-price">
+                    <span class="current-price">350₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(3, 'Свежий виноград', 350)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_kukuruz.png" alt="Кукуруза">
+                </div>
+                <div class="product-category">Овощи</div>
+                <h3 class="product-name">Сладкая кукуруза</h3>
+                <div class="product-price">
+                    <span class="current-price">120₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(4, 'Сладкая кукуруза', 120)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_nut.png" alt="Грецкий орех">
+                </div>
+                <div class="product-category">Орехи</div>
+                <h3 class="product-name">Грецкий орех</h3>
+                <div class="product-price">
+                    <span class="current-price">600₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(5, 'Грецкий орех', 600)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 6 -->
+            <div class="product-card">
+                <div class="product-badge">Sale!</div>
+                <div class="product-image">
+                    <img src="img/prod_banana.png" alt="Бананы">
+                </div>
+                <div class="product-category">Сезонное</div>
+                <h3 class="product-name">Свежие бананы</h3>
+                <div class="product-price">
+                    <span class="current-price">145₽</span>
+                    <span class="old-price">180₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(6, 'Свежие бананы', 145)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_cucumber.png" alt="Огурцы">
+                </div>
+                <div class="product-category">Овощи</div>
+                <h3 class="product-name">Органические огурцы</h3>
+                <div class="product-price">
+                    <span class="current-price">120₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(7, 'Органические огурцы', 120)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+
+            <!-- Продукт 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/prod_avak.png" alt="Авокадо">
+                </div>
+                <div class="product-category">Овощи</div>
+                <h3 class="product-name">Зеленое авокадо</h3>
+                <div class="product-price">
+                    <span class="current-price">600₽</span>
+                </div>
+                <button class="btn-product" onclick="addToCart(8, 'Зеленое авокадо', 600)">
+                    <i class="fas fa-shopping-cart"></i> В корзину
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Раздел "Доставка" -->
+    <section class="delivery">
+        <div class="container">
+            <h2 class="section-title-decorative">Доставка</h2>
+
+            <div class="delivery-content">
+                <div class="delivery-features">
+                    <div class="delivery-feature">
+                        <div class="feature-icon-large">
+                            <img src="img/dost3.png" alt="Доставка">
+                        </div>
+                        <div class="feature-text-box">
+                            <h3>Быстрая доставка</h3>
+                            <p>от 15 минут</p>
+                        </div>
+                    </div>
+
+                    <div class="delivery-feature">
+                        <div class="feature-icon-large">
+                            <img src="img/dost1.png" alt="Доставка">
+                        </div>
+                        <div class="feature-text-box">
+                            <h3>Бережная доставка</h3>
+                            <p>аккуратная перевозка</p>
+                        </div>
+                    </div>
+
+                    <div class="delivery-feature">
+                        <div class="feature-icon-large">
+                            <img src="img/dost2.png" alt="Отслеживание">
+                        </div>
+                        <div class="feature-text-box">
+                            <h3>До самого порога</h3>
+                            <p>прямо к вашей двери</p>
+                        </div>
+                    </div>
+                    <div class="delivery-feature">
+                        <div class="feature-icon-large">
+                            <img src="img/dost4.png" alt="Отслеживание">
+                        </div>
+                        <div class="feature-text-box">
+                            <h3>До самого порога</h3>
+                            <p>прямо к вашей двери</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="delivery-description">
+                    <h3>Доставка, которая чувствует ваше время и ценит ваш комфорт.</h3>
+                    <p>
+                        Мы привозим не просто овощи и фрукты, а ваши сэкономленные часы для увлечений и близких.
+                        Наше главное правило — абсолютная сохранность каждого плода, чтобы вы могли быть спокойны за
+                        качество.
+                        Когда время лимитировано, наша доставка за 2 часа станет вашим спасением.
+                        Если график позволяет, выберите неспешную бережную доставку: мы тщательно упакуем каждый товар,
+                        чтобы он дошёл до вас в идеальном виде — прямо до порога.
+                        А с заказом от 1500 рублей эта забота и скорость — бесплатны.
+                    </p>
+
+                    <div class="delivery-cta">
+                        <p>Просто укажите удобное время, а мы сделаем всё остальное.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Отзывы покупателей -->
+<section class="testimonials">
+    <div class="container">
+        <p class="testimonials-subtitle">Обратная связь</p>
+        <h2 class="testimonials-title">Что говорят покупатели?</h2>
+
+        <div class="testimonial-carousel">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <blockquote class="testimonial-text">
+                        "Открыл для себя настоящую свежесть. Здесь каждый фрукт — это блаженство, выбранное не из спешки, а с умыслом. Рекомендую всем, кто ценит качество и долгую свежесть"
+                    </blockquote>
+
+                    <div class="testimonial-quote-icon">
+                        <img src="img/quote.png" alt="quote">
+                    </div>
+                    
+                    <div class="testimonial-author">
+                        <img src="img/otzyv.png" alt="Matthew J. Wyman" class="author-image">
+                        <h4 class="author-name">Алиса Аю</h4>
+                        <p class="author-role">покупатель</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button class="control-dot active"></button>
+                <button class="control-dot"></button>
+                <button class="control-dot"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Здоровая жизнь -->
+    <section class="healthy-life">
+        <div class="container">
+            <h2 class="healthy-title">Здоровая Жизнь<br>Со Свежими Продуктами</h2>
+
+            <div class="healthy-gallery">
+                <div class="gallery-item">
+                    <img src="img/healthy_apple.png" alt="Продукт">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/healthy_blueberry.png" alt="Продукт">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/healthy_cabbage.png" alt="Продукт">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/healthy_kukurz.png" alt="Продукт">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/healthy_orange.png" alt="Продукт">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/healthy_strawberry.png" alt="Продукт">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Контактная форма -->
+<section class="contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Левая часть с формой -->
+            <div class="contact-form-box">
+                <p class="contact-subtitle">Остались вопроасы?</p>
+                <h2 class="contact-title">Напишите нам</h2>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Имя" class="form-input">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" placeholder="Email*" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Телефон" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea placeholder="Комментарий" class="form-textarea" rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Отправить</button>
+                </form>
+            </div>
+
+            <!-- Правая часть с контактами (зеленый фон) -->
+            <div class="contact-info-box">
+                <div class="contact-info-content">
+                    <h3 class="info-title">Контакты</h3>
+                    <p class="info-description">Наши контакты — ваш прямой путь к свежести.</p>
+                    
+                    <div class="info-details">
+                        <div class="info-item">
+                            <span class="info-label">Горячая линия</span>
+                            <span class="info-value">+7 952 233 65 23</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-label">Наш Адрес</span>
+                            <span class="info-value">Проспект Октября 245, Уфа</span>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-label">Официальный Email</span>
+                            <span class="info-value">ovfruc@ovf.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Декоративная морковка -->
+                <div class="contact-decoration-carrot">
+                    <img src="img//cont_carrot.png" alt="Carrot" class="carrot-image">
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-image-small">
+                            <img src="img/logo.png" alt="Логотип">
+                        </div>
+                        <div class="logo-text-footer">
+                            <h3>Овощи и Фрукты</h3>
+                            <p>Магазин свежих продуктов</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Здоровая жизнь начинается со свежих продуктов!
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>О нас</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Наши проекты</a></li>
+                        <li><a href="#">Фермеры</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Россия, г. Уфа</p>
+                        <p><i class="fas fa-envelope"></i> ovofruits@mail.com</p>
+                        <p><i class="fas fa-phone"></i> +7 (000) 000-00-00</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Рассылка</h4>
+                    <p>Подпишитесь на наши новости</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Ваш Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Овощи и Фрукты. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
